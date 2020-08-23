@@ -42,7 +42,7 @@ function quickSort (arr, descending = false,) {
         }
     }
     //console.log(`Sorting pivot: ${pivot}, left: ${left}, right: ${right}\n`);
-    return [...quickSort(right), pivot, ...quickSort(left)];
+    return [...quickSort(left, descending), pivot, ...quickSort(right, descending)];
 }
 console.log(`Sorted array: ${sortedArray}`);
 console.timeEnd("Process Time");
