@@ -1,8 +1,7 @@
 'use strict'
-
 //generating the example array for the sorting
 const utility = require("./utilities.js");
-let arr = utility.getStaticArray();
+let arr = utility.getLongStaticArray();
 
 console.log(`\nOriginal Array: ${arr}\n\n`);
 console.time("Process Time");
@@ -14,19 +13,23 @@ bubbleSort(arr, true);
 //To make this algorithm faster we can decrease the length of the array that we want to search
 //for every number that has been bubbling up in the array.
 function bubbleSort (arr, descending=false) {
+    //iterate through the values
     for (let position = 0; position < arr.length; position++) {
+        //iterate over the array to see we can swap values 
         for (let element = 0 ; element < arr.length - position - 1; element++) {
-            if ((arr[element] > arr[element + 1] && descending == false) || (arr[element] < arr[element + 1] && descending == true)) {
-                console.log(`Sorting for position: ${arr.length - position},` +
-                            `\nSwapping element: ${element + 1} and ${element + 2},\nInitial array: ${arr}\n`);
-                arr[element] += arr[element + 1];
-                arr[element + 1] = arr[element] - arr[element + 1];
+            const currItem = arr[element];
+            const nextItem = arr[element + 1];
+            //if the current element has lower or higher value (base on the sorting order) than the next item
+            //swap the values
+            if ((currItem > nextItem && descending == false) || (currItem < nextItem && descending == true)) {
+                console.log(`Sorting for position: ${arr.length - position},\nSwapping element: ${element + 1} and ${element + 2},\nInitial array: ${arr}\n`);
+                arr[element] += nextItem;
+                arr[element + 1] = arr[element] - nextItem;
                 arr[element] = arr[element] - arr[element + 1];
                 console.log(`Modified array: ${arr}\n`);
             }
         }
     }
+    console.log(`\nSorted Array: ${arr}\n`);
+    console.timeEnd("Process Time");
 }
-
-console.log(`\nSorted Array: ${arr}\n`);
-console.timeEnd("Process Time");

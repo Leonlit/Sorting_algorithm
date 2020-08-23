@@ -1,6 +1,7 @@
+'use strict'
 //generating the example array for the sorting
 const utility = require("./utilities.js");
-let arr = utility.getStaticArray();
+let arr = utility.getLongStaticArray();
 
 console.log(`\nOriginal Array: ${arr}\n\n`);
 console.time("Process Time");
@@ -35,14 +36,12 @@ function selectionSwap (arr, descending = false) {
             }
         }
         if (currSwapIndex == position) continue
-        console.log(`Sorting for position: ${arr.length - position},` +
-                            `\nSwapping element: ${position + 1} and ${currSwapIndex + 1},\nInitial array: ${arr}\n`);
+        console.log(`Sorting for position: ${arr.length - position},\nSwapping element: ${position + 1} and ${currSwapIndex + 1},\nInitial array: ${arr}\n`);
         arr[position] += arr[currSwapIndex];
         arr[currSwapIndex] = arr[position] - arr[currSwapIndex];
         arr[position] = arr[position] - arr[currSwapIndex];
         console.log(`Modified array: ${arr}\n`);
     }
+    console.log(`\nSorted Array: ${arr}\n`);
+    console.timeEnd("Process Time");
 }
-
-console.log(`\nSorted Array: ${arr}\n`);
-console.timeEnd("Process Time");
