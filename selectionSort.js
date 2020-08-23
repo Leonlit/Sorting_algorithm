@@ -1,13 +1,13 @@
 'use strict'
 //generating the example array for the sorting
 const utility = require("./utilities.js");
-let arr = utility.getSuperLongStaticArray();
+let arr = utility.generateArray(1000);
 
 console.log(`\nOriginal Array: ${arr}\n\n`);
 console.time("Process Time");
 
 //remove the second arguments if you want to sort the array in ascending order
-selectionSwap(arr, true);
+selectionSwap(arr);
 
 //selection sort works by selecting the smallest number in an array and assign it to the left hand side of the array.
 //I implemented this algorithm by first search the minimum number for the current array (in the boundary)
