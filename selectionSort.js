@@ -1,7 +1,7 @@
 'use strict'
 //generating the example array for the sorting
 const utility = require("./utilities.js");
-let arr = utility.getLongStaticArray();
+let arr = utility.getSuperLongStaticArray();
 
 console.log(`\nOriginal Array: ${arr}\n\n`);
 console.time("Process Time");
@@ -24,7 +24,7 @@ selectionSwap(arr, true);
 //      array boundary
 //
 //since the other two number has already been sorted, we can ignore thoes two index, therefore safe some time.
-
+//remove the comments for the console.log to see how the sorting work behind the scene
 function selectionSwap (arr, descending = false) {
     for (let position = 0; position < arr.length - 1; position++) {
         let currSwap = arr[position];
@@ -36,11 +36,11 @@ function selectionSwap (arr, descending = false) {
             }
         }
         if (currSwapIndex == position) continue
-        console.log(`Sorting for position: ${arr.length - position},\nSwapping element: ${position + 1} and ${currSwapIndex + 1},\nInitial array: ${arr}\n`);
+        //console.log(`Sorting for position: ${arr.length - position},\nSwapping element: ${position + 1} and ${currSwapIndex + 1},\nInitial array: ${arr}\n`);
         arr[position] += arr[currSwapIndex];
         arr[currSwapIndex] = arr[position] - arr[currSwapIndex];
         arr[position] = arr[position] - arr[currSwapIndex];
-        console.log(`Modified array: ${arr}\n`);
+        //console.log(`Modified array: ${arr}\n`);
     }
     console.log(`\nSorted Array: ${arr}\n`);
     console.timeEnd("Process Time");

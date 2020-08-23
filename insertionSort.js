@@ -1,16 +1,17 @@
 'use strict'
 //generating the example array for the sorting
 const utility = require("./utilities.js");
-let arr = utility.getLongStaticArray();
+let arr = utility.getSuperLongStaticArray();
 
 console.log(`\nOriginal Array: ${arr}\n\n`);
 console.time("Process Time");
 
+//remove the second arguments if you want to sort the array in ascending order
 insertionSort(arr, true);
 
 //Insertion sort work by inserting the value to an appropriate index that's lower than it,
 //ignoring the elements after it. 
-
+//remove the comments for the console.log to see how the sorting work behind the scene
 function insertionSort (arr, descending=false) {
     //iterate through the values
     for (let position = 1 ; position < arr.length; position++) {
