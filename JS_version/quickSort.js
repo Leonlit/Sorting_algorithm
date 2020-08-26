@@ -1,13 +1,13 @@
 'use strict'
 //generating the example array for the sorting
 const utility = require("./utilities.js");
-let arr = utility.getSuperLongStaticArray();
+let arr = utility.generateArray(30);
 
 console.log(`\nOriginal Array: ${arr}\n\n`);
 console.time("Process Time");
 
 //remove the second arguments if you want to sort the array in ascending order
-let sortedArray = quickSort(arr, true);
+let sortedArray = quickSort(arr);
 
 //Quick sort work by first choose a value as the pivot (usually the last value), then separate the values into
 //two different arrays: left and right. Depending on the order of the sorting, the value will be divided into two array
