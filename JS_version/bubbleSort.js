@@ -1,7 +1,7 @@
 'use strict'
 //generating the example array for the sorting
 const utility = require("./utilities.js");
-let arr = utility.getSuperLongStaticArray();
+const arr = utility.getSuperLongStaticArray();
 
 console.log(`\nOriginal Array: ${arr}\n\n`);
 console.time("Process Time");
